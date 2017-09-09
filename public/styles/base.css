@@ -4,7 +4,7 @@ body {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 2.8em;
 }
 
 p {
@@ -13,10 +13,10 @@ p {
 
 section {
   width: 90%;
-  border-style: solid;
-  border-color: orange;
-  height: 500px;
-  margin-top: 2.5%;
+  padding: 5%;
+  border: 5px solid orange;
+  border-radius: 5px;
+  margin: 5%;
 }
 
 canvas {
