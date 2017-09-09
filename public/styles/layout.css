@@ -16,11 +16,7 @@ head {
   margin-left:15%;
 }
 
-a {
-
-}
-
-.data {
+section {
   width: 90%;
   border-style: solid;
   border-color: orange;
