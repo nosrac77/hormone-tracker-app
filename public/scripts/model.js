@@ -1,6 +1,6 @@
 'use strict';
 
-var dataPoints = [];
+localstorage.dataPoints = [];
 
 function DataPoint (date, dosage, tLevel, eLevel, log){
   this.date = date ;
@@ -8,19 +8,10 @@ function DataPoint (date, dosage, tLevel, eLevel, log){
   this.tLevel = tLevel ;
   this.eLevel = eLevel ;
   this.log = log ;
-  dataPoints.push(this);
-}
-
-if (localstorage.dataPoints) {
-  dataPoints = localstorage.dataPoints;
-
-} else {
-  localstorage.dataPoints = dataPoints;
-}
-
- //if localstorage.dataPoints then dataPoints = localstorage.dataPoints;
- //if not then localstorage.dataPoints = dataPoints
+  localstorage.dataPoints.push(this);
+};
 
 DataPoint.prototype.toHtml = function (){
-   //manipulate template strings here
+   //manipulate template strings here so that the dom renders them to #log section
+
 };
