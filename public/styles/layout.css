@@ -38,28 +38,30 @@ canvas{
     display: none;
   }
   body{
-    max-width: 100%;
-    margin-left: 0%;
-    margin-right: 0%;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
   }
 }
 
 @media screen and (min-width:451px) and (max-width: 800px) {
   #form, #graph, #log{
-    display: block;
+    display: inline-block;
   }
   body{
-    max-width: 90%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 }
 
 @media screen and (min-width: 800px) {
   #form, #graph, #log{
-    display: inline;
+    display: inline-block;
   }
   body{
-    max-width: 90%;
+    width: 80%;
     margin-left: 10%;
+    margin-right: 10%;
   }
 }
