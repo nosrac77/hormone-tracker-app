@@ -4,6 +4,15 @@
   border-color: orange;
 }
 
+label {
+  margin-left: 5%;
+  margin-right: 10%;
+}
+input{
+  margin-left: 5%;
+  margin-right: 10%;
+}
+
 #graph, #form, #log {
   width: 100%;
 }
