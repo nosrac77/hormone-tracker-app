@@ -1,6 +1,6 @@
 'use strict';
 
-DataPoint.handleTabs = function(){
+DataPoint.handleTabs = function() {
   $('.tab').on('click', function(){
     $('.data').hide();
     var dataCat = $(this).attr('data-category');
@@ -39,7 +39,7 @@ var chart = new Chart (ctx, {
       pointStyle: 'circle',
       showLines: true,
       fontColor: 'rgb(255, 255, 255)',
-      data: [dataPoints.tLevel],
+      data: [localstorage.dataPoints.tLevel],
     }]
   },
 });

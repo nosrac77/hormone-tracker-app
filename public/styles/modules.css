@@ -1,8 +1,8 @@
-#graph {
+/*#graph {
   display: none;
-}
+}*/
 
-@media screen and (max-width: 450px){
+@media screen and (max-width: 450px) {
   #form #graph #log{
     display: none;
   }
