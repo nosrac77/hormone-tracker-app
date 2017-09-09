@@ -6,7 +6,7 @@ DataPoint.handleTabs = function() {
     var dataCat = $(this).attr('data-category');
     $('#' + dataCat).show();
     console.log('Showing: ' + dataCat);
-  }
+  })
 };
 
 var ctx = document.getElementById('myChart').getContext('2d');
