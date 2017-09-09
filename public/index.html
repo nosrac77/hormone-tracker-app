@@ -29,8 +29,16 @@
     </section>
     <section class="data" id="log">
       <script id="entry-template">
-        <!-- log template goes here -->
-
+        <h2>{{date}}</h2>
+        <p><span>Log entry: </span>
+          <br>{{log}}
+        </p>
+        <ul>
+          <li><span>Prescription: </span>{{prescription}}</li>
+          <li><span>Dosage: </span>{{dosage}}</li>
+          <li><span>Testosterone level: </span>{{tLevel}}</li>
+          <li><span>Estrogen level: </span>{{eLevel}}</li>
+        </ul>
       </script>
       <!-- log appends here at the end of #entry-template-->
 
