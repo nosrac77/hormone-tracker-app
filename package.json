@@ -12,7 +12,7 @@
     "url": "git+https://github.com/nosrac77/hormone-tracker-app.git"
   },
   "author": "Rowen, Kyle, and Carson.",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nosrac77/hormone-tracker-app/issues"
   },
@@ -20,6 +20,7 @@
   "dependencies": {
     "chart.js": "^2.6.0",
     "express": "^4.15.4",
+    "handlebars": "^4.0.10",
     "jquery": "^3.2.1",
     "pg": "^7.3.0"
   }
