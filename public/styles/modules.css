@@ -1,0 +1,15 @@
+#graph {
+  display: none;
+}
+
+@media screen and (max-width: 450px){
+  #form #graph #log{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #form #graph #log{
+    display: block;
+  }
+}
