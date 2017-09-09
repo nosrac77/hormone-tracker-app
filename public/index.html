@@ -14,35 +14,43 @@
   <body>
     <h1>MedSwarm</h1>
     <section id="navbar">
-      <a data-category = "form" class="tab">Enter Data</a>
-      <a data-category = "graph" class="tab">View Graph</a>
-      <a data-category = "log" class="tab">View Log</a>
+      <a data-category = "form" class="tab">New Entry</a>
+      <a data-category = "graph" class="tab">Graph</a>
+      <a data-category = "log" class="tab">Log</a>
     </section>
-    <section class="data" id="form">
-      <!-- forms go here -->
+    <div>
+      <h1>New Entry</h1>
+      <section class="data" id="form">
+        <!-- forms go here -->
+      </section>
+      </section>
+    </div>
+    <div>
+      <h1>Graph</h1>
+      <section class="data" id="graph">
+        <!-- graph blerb text goes here -->
 
-    </section>
-    <section class="data" id="graph">
-     <!-- graph blerb text goes here -->
-
-     <canvas id="myChart"></canvas>
-    </section>
-    <section class="data" id="log">
-      <script id="entry-template">
-        <h2>{{date}}</h2>
-        <p><span>Log entry: </span>
-          <br>{{log}}
-        </p>
-        <ul>
-          <li><span>Prescription: </span>{{prescription}}</li>
-          <li><span>Dosage: </span>{{dosage}}</li>
-          <li><span>Testosterone level: </span>{{tLevel}}</li>
-          <li><span>Estrogen level: </span>{{eLevel}}</li>
-        </ul>
-      </script>
-      <!-- log appends here at the end of #entry-template-->
-
-    </section>
+        <canvas id="myChart"></canvas>'
+      </section>
+    </div>
+    <div>
+    <h2>Log</h2>
+      <section class="data" id="log">
+        <script id="entry-template">
+          <h2>{{date}}</h2>
+          <p><span>Log entry: </span>
+            <br>{{log}}
+            </p>
+            <ul>
+            <li><span>Prescription: </span>{{prescription}}</li>
+            <li><span>Dosage: </span>{{dosage}}</li>
+            <li><span>Testosterone level: </span>{{tLevel}}</li>
+            <li><span>Estrogen level: </span>{{eLevel}}</li>
+            </ul>
+          </script>
+          <!-- log appends here at the end of #entry-template-->
+      </section>
+    </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
