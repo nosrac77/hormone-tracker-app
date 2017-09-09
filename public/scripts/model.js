@@ -16,5 +16,8 @@ function DataPoint (date, dosage, tLevel, eLevel, log){
 
 DataPoint.prototype.toHtml = function (){
    //manipulate template strings here so that the dom renders them to #log section
-   
+  var template = Handlebars.compile($('entry-template').html());
+
+  console.log(template(this));
+  return template(this);
 };
