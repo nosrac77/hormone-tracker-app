@@ -1,6 +1,6 @@
 'use strict';
 
-DataPoint.handleTabs = function(){
+DataPoint.handleTabs = function() {
   $('.tab').on('click', function(){
     $('.data').hide();
     var dataCat = $(this).attr('data-category');

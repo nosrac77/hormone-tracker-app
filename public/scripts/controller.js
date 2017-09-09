@@ -1,5 +1,3 @@
 'use strict';
 
-(function () {
-  //stuff to execute
-})(localstorage.dataPoints);
+DataPoint.handleTabs();
