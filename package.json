@@ -1,0 +1,24 @@
+{
+  "name": "hormone-tracker-app",
+  "version": "1.0.0",
+  "description": "This app tracks hormone usage for medical and research purposes.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nosrac77/hormone-tracker-app.git"
+  },
+  "author": "Rowen, Kyle, Alec, and Carson.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nosrac77/hormone-tracker-app/issues"
+  },
+  "homepage": "https://github.com/nosrac77/hormone-tracker-app#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "pg": "^7.3.0"
+  }
+}
