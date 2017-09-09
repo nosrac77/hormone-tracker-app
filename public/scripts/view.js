@@ -17,8 +17,8 @@ var chart = new Chart (ctx, {
     labels: [localstorage.dataPoints.date],
     datasets: [{
       label: "Estrogen",
-      backgroundColor: 'rgb(0,0,0)',
-      borderColor: 'rgb(238, 117, 234)',
+      backgroundColor: 'rgb(238, 117, 234)',
+      borderColor: 'rgb(0,0,0)',
       borderWidth: '3px',
       pointBackgroundColor: 'rgb(224, 224, 224)',
       pointBorderColor: 'rgb(238, 117, 234)',
@@ -30,8 +30,8 @@ var chart = new Chart (ctx, {
     },
     {
       label: "Testosterone",
-      backgroundColor: 'rgb(0,0,0)',
-      borderColor: 'rgb(0, 255, 255)',
+      backgroundColor: 'rgb(0, 255, 255)',
+      borderColor: 'rgb(0,0,0)',
       borderWidth: '3px',
       pointBackgroundColor: 'rgb(224, 224, 224)',
       pointBorderColor: 'rgb(0, 255, 255)',
