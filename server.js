@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 5000;
 const pg = require('pg');
 const express = require('express');
 const app = express();
-const conString = DATABASE_URL || 'postgres://postgres:Skrillexfan7@localhost:5432';
+const conString = process.env.DATABASE_URL || 'postgres://postgres:Skrillexfan7@localhost:5432';
 const client = new pg.Client(conString);
 pg.defaults.ssl = true;
 client.connect();
