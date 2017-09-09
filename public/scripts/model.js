@@ -1,5 +1,7 @@
 'use strict';
 
+var localstorage = localstorage || {};
+
 localstorage.dataPoints = [];
 
 function DataPoint (date, dosage, tLevel, eLevel, log){
