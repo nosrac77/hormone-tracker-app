@@ -1,31 +1,8 @@
 #navbar {
-  width: 90%;
-  border-style: solid;
-  border-color: orange;
-}
-
-#graph, #form, #log {
   width: 100%;
 }
 
-head {
-  width: 100%
-}
-
-.tab  {
-  margin-left:15%;
-}
-
-section {
-  width: 90%;
-  border-style: solid;
-  border-color: orange;
-  height: 500px;
-  margin-top: 2.5%;
-}
-
-canvas{
-  height: 100%;
+#graph, #form, #log {
   width: 100%;
 }
 
@@ -54,6 +31,8 @@ canvas{
 @media screen and (min-width: 800px) {
   #form, #graph, #log{
     display: inline-block;
+    float: left;
+    width: 25%
   }
   body{
     width: 80%;

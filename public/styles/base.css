@@ -1,4 +1,25 @@
-body{
+body {
   margin-left: 10%;
   margin-right: 10%;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+p {
+  font-size: 1em;
+}
+
+section {
+  width: 90%;
+  border-style: solid;
+  border-color: orange;
+  height: 500px;
+  margin-top: 2.5%;
+}
+
+canvas {
+  height: 100%;
+  width: 100%;
 }
