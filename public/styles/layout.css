@@ -44,7 +44,7 @@ canvas{
   }
 }
 
-@media screen and (min-width:451px) and (max-width: 800px) {
+@media screen and (min-width:451px) and (max-width: 900px) {
   #form, #graph, #log{
     display: block;
   }
@@ -54,7 +54,7 @@ canvas{
   }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 900px) {
   #form, #graph, #log{
     display: inline;
   }
