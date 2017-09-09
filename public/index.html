@@ -19,7 +19,31 @@
       <a data-category = "log" class="tab">View Log</a>
     </section>
     <section class="data" id="form">
-      <!-- forms go here -->
+
+      <form class="user-form">
+
+        <label for="date">Lab Date:</label>
+        <input type="text" name="date" value="">
+
+        <label for="prescription">Prescription:</label>
+        <input type="text" name="prescription" value="">
+
+        <label for="dosage">Dosage:</label>
+        <input type="text" name="dosage" value="">
+
+        <label for="tLevel">Testosterone Levels:</label>
+        <input type="number" name="tLevel" value="">
+
+        <label for="eLevel">Estrogen Levels:</label>
+        <input type="number" name="eLevel" value="">
+
+        <label for="log">Personal Log:</label>
+        <textarea id="log-form" name="log" rows="8" cols="80"></textarea>
+
+        <input type="submit" value="Submit Form!">
+
+      </form>
+
 
     </section>
     <section class="data" id="graph">
@@ -28,7 +52,7 @@
      <canvas id="myChart"></canvas>
     </section>
     <section class="data" id="log">
-      <script id="entry-template">
+      <script id="entry-template" type="text/x-handlebars-template">
         <h2>{{date}}</h2>
         <p><span>Log entry: </span>
           <br>{{log}}
