@@ -13,29 +13,29 @@
   </head>
   <body>
     <h1>MedSwarm</h1>
-    <section id="navbar">
+    <div id="navbar">
       <a data-category = "form" class="tab">New Entry</a>
       <a data-category = "graph" class="tab">Graph</a>
       <a data-category = "log" class="tab">Log</a>
-    </section>
-    <div>
+    </div>
+    <div class="data" id="form">
       <h1>New Entry</h1>
-      <section class="data" id="form">
+      <section>
         <!-- forms go here -->
       </section>
       </section>
     </div>
-    <div>
+    <div class="data" id="graph">
       <h1>Graph</h1>
-      <section class="data" id="graph">
+      <section>
         <!-- graph blerb text goes here -->
 
         <canvas id="myChart"></canvas>'
       </section>
     </div>
-    <div>
-    <h2>Log</h2>
-      <section class="data" id="log">
+    <div class="data" id="log">
+    <h1>Log</h1>
+      <section>
         <script id="entry-template">
           <h2>{{date}}</h2>
           <p><span>Log entry: </span>
