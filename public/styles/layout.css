@@ -1,6 +1,58 @@
-.navbar{
-  width: 100%;
+#navbar {
+  width: 90%;
+  border-style: solid;
+  border-color: orange;
 }
-head{
+
+head {
   width: 100%
+}
+
+.tab  {
+  margin-left:15%;
+}
+
+a {
+
+}
+
+.data {
+  width: 90%;
+  border-style: solid;
+  border-color: orange;
+  height: 500px;
+  margin-top: 2.5%;
+}
+
+/* doesn't function when screen is scaled below 450px. Other two seem to work. =] */
+
+@media screen and (max-width: 800px) {
+  #form #graph #log{
+    display: block;
+  }
+  body{
+    max-width: 90%;
+    margin-left: 10%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #form #graph #log{
+    display: inline;
+  }
+  body{
+    max-width: 90%;
+    margin-left: 10%;
+  }
+}
+
+@media screen and (max-width: 450px){
+  #form #graph #log{
+    display: none;
+  }
+  body{
+    max-width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
 }

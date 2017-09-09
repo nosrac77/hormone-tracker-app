@@ -6,7 +6,7 @@ DataPoint.handleTabs = function(){
     var dataCat = $(this).attr('data-category');
     $('#' + dataCat).show();
     console.log('Showing: ' + dataCat);
-  }
+  })
 };
 
 var ctx = document.getElementById('myChart').getContext('2d');
@@ -39,7 +39,7 @@ var chart = new Chart (ctx, {
       pointStyle: 'circle',
       showLines: true,
       fontColor: 'rgb(255, 255, 255)',
-      data: [dataPoints.tLevel],
+      data: [localstorage.dataPoints.tLevel],
     }]
   },
 });
