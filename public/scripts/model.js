@@ -11,6 +11,13 @@ function DataPoint (date, dosage, tLevel, eLevel, log){
   dataPoints.push(this);
 }
 
+if (localstorage.dataPoints) {
+  dataPoints = localstorage.dataPoints;
+
+} else {
+  localstorage.dataPoints = dataPoints;
+}
+
  //if localstorage.dataPoints then dataPoints = localstorage.dataPoints;
  //if not then localstorage.dataPoints = dataPoints
 
