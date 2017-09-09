@@ -4,6 +4,10 @@
   border-color: orange;
 }
 
+#graph, #form, #log {
+  width: 100%;
+}
+
 head {
   width: 100%
 }
@@ -20,10 +24,24 @@ section {
   margin-top: 2.5%;
 }
 
-/* doesn't function when screen is scaled below 450px. Other two seem to work. =] */
+canvas{
+  height: 100%;
+  width: 100%;
+}
 
-@media screen and (max-width: 800px) {
-  #form #graph #log{
+@media screen and (max-width: 450px){
+  #form, #graph, #log{
+    display: none;
+  }
+  body{
+    max-width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+}
+
+@media screen and (min-width:451px) and (max-width: 800px) {
+  #form, #graph, #log{
     display: block;
   }
   body{
@@ -33,22 +51,11 @@ section {
 }
 
 @media screen and (min-width: 800px) {
-  #form #graph #log{
+  #form, #graph, #log{
     display: inline;
   }
   body{
     max-width: 90%;
     margin-left: 10%;
-  }
-}
-
-@media screen and (max-width: 450px){
-  #form #graph #log{
-    display: none;
-  }
-  body{
-    max-width: 100%;
-    margin-left: 0%;
-    margin-right: 0%;
   }
 }
