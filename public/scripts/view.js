@@ -1,15 +1,20 @@
 'use strict';
 
-DataPoint.handleTabs = function(event){
-  $('.data').hide();
-  //$('.tab').on('click', event => { hide id's that match the clicked tabs' data category }
+DataPoint.handleTabs = function(){
+  $('.tab').on('click', function(){
+    $('.data').hide();
+    var dataCat = $(this).attr('data-category');
+    $('#' + dataCat).show();
+    console.log('Showing: ' + dataCat);
+  }
 };
 
 var ctx = document.getElementById('myChart').getContext('2d');
+
 var chart = new Chart (ctx, {
   type: 'line',
   data: {
-    labels: [dataPoints.date],
+    labels: [localstorage.dataPoints.date],
     datasets: [{
       label: "Estrogen",
       backgroundColor: 'rgb(238, 117, 234)',
@@ -21,7 +26,7 @@ var chart = new Chart (ctx, {
       pointStyle: 'circle',
       showLines: true,
       fontColor: 'rgb(255, 255, 255)',
-      data: [dataPoints.eLevel],
+      data: [localstorage.dataPoints.eLevel],
     },
     {
       label: "Testosterone",
