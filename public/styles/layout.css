@@ -1,42 +1,51 @@
 #navbar {
-  width: 100%;
+  text-align: center;
 }
 
-#graph, #form, #log {
+.tab {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.data {
   width: 100%;
+  display: block;
 }
 
 @media screen and (max-width: 450px){
-  #form, #graph, #log{
+  .data {
     display: none;
   }
-  body{
-    width: 95%;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
+  body {
+    margin-left: 2%;
+    margin-right: 2%;
   }
 }
 
-@media screen and (min-width:451px) and (max-width: 800px) {
-  #form, #graph, #log{
-    display: inline-block;
-  }
-  body{
-    width: 100%;
+@media screen and (min-width:451px) and (max-width: 900px) {
+  body {
     margin-left: 5%;
     margin-right: 5%;
   }
 }
 
-@media screen and (min-width: 800px) {
-  #form, #graph, #log{
-    display: inline-block;
+@media screen and (min-width: 900px) {
+  .data {
+    height: 100%;
+    width: 33%;
     float: left;
-    width: 25%
   }
-  body{
-    width: 100%;
-    margin-left: 10%;
-    margin-right: 10%;
+  #form {
+    margin-right: 0.5%;
+  }
+  #log {
+    margin-left: 0.5%;
+  }
+  #log-form {
+    width: 97%;
+  }
+  body {
+    margin-left: 15%;
+    margin-right: 15%;
   }
 }

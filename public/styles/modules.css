@@ -1,8 +1,15 @@
 #navbar {
   border: 5px solid orange;
   border-radius: 5px;
+  margin-bottom: 5%;
 }
 
 #log-form {
-  width: 95%;
+  width: 98.7%;
+}
+
+#submit-button {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
