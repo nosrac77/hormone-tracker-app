@@ -16,5 +16,26 @@ function DataPoint (date, dosage, tLevel, eLevel, log){
 
 DataPoint.prototype.toHtml = function (){
    //manipulate template strings here so that the dom renders them to #log section
-   
+
 };
+
+$('#submit-button').on('click', function(e){
+  e.preventDefault();
+  var userLogObj = {
+    eLevel: parseInt($('#eLevel').val()),
+    tLevel: parseInt($('#tLevel').val()),
+    dosage: parseInt($('#dosage').val()),
+    date: $('#date').val(),
+    log: $('#log-form').val()
+  };
+  console.log(userLogObj);
+  $.post('/submit', {
+    eLevel: parseInt($('#eLevel').val()),
+    tLevel: parseInt($('#tLevel').val()),
+    dosage: parseInt($('#dosage').val()),
+    date: $('#date').val(),
+    log: $('#log-form').val()
+  })
+    .then(console.log('post complete'))
+    .catch(console.error);
+});

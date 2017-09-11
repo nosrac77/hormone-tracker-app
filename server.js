@@ -16,3 +16,12 @@ app.use(express.static('./public'));
 app.listen(PORT, function() {
   console.log('Listening on port ' + PORT);
 });
+
+app.post('/submit', function(request, response) {
+  client.query(`
+    INSERT INTO logs (date, prescription, dosage, "tLevel", "eLevel", user_log)
+    VALUES($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING `,
+    [request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.user_log],
+  ).then(() => response.send('Postgres Database insert complete!'))
+  .catch(console.error);
+}
