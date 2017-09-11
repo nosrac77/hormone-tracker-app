@@ -22,6 +22,9 @@ app.post('/submit', function(request, response) {
     INSERT INTO logs (date, prescription, dosage, "tLevel", "eLevel", user_log)
     VALUES($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING `,
     [request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.user_log],
-  ).then(() => response.send('Postgres Database insert complete!'))
-  .catch(console.error);
+    function(err){
+      if (err) console.error(err);
+      response.send('insert complete');
+    }
+  );
 }
