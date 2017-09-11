@@ -13,9 +13,6 @@ client.on('error', err => console.error('you fucked up somehow man, here\'s the 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
-app.listen(PORT, function() {
-  console.log('Listening on port ' + PORT);
-});
 
 app.post('/submit', function(request, response) {
   console.log('app.post has fired');
@@ -28,4 +25,8 @@ app.post('/submit', function(request, response) {
       response.send('insert complete');
     }
   );
+});
+
+app.listen(PORT, function() {
+  console.log('Listening on port ' + PORT);
 });
