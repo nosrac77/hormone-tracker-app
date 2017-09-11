@@ -18,6 +18,7 @@ app.listen(PORT, function() {
 });
 
 app.post('/submit', function(request, response) {
+  console.log('app.post has fired');
   client.query(`
     INSERT INTO logs (date, prescription, dosage, "tLevel", "eLevel", user_log)
     VALUES($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING `,
