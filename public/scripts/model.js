@@ -29,13 +29,8 @@ $('#submit-button').on('click', function(e){
     log: $('#log-form').val()
   };
   console.log(userLogObj);
-  $.post('/submit', {
-    eLevel: parseInt($('#eLevel').val()),
-    tLevel: parseInt($('#tLevel').val()),
-    dosage: parseInt($('#dosage').val()),
-    date: $('#date').val(),
-    log: $('#log-form').val()
-  })
+  var jsonObj = JSON.stringify(userLogObj);
+  $.post('/submit', jsonObj)
     .then(console.log('post complete'))
     .catch(console.error);
 });

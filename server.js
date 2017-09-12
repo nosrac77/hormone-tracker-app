@@ -14,6 +14,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
+// app.get('/submit', function(request, response){
+//
+// });
+
 app.post('/submit', function(request, response) {
   console.log('app.post has fired');
   client.query(`
