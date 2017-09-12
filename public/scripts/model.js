@@ -30,7 +30,7 @@ $('#submit-button').on('click', function(e){
   $.post('/submit', {
     prescription: prescription,
     eLevel: eLevel,
-    tLevel: tLevel,
+    tlevel: tLevel,
     dosage: dosage,
     date: date,
     log: log
