@@ -28,7 +28,7 @@ app.post('/submit', function(request, response) {
       `SELECT id FROM users`,
       function(err, result) {
         if (err) console.error(err)
-        queryThree(result.rows[0].author_id)
+        queryThree(result.rows[0].user_id)
       }
     )
   }
