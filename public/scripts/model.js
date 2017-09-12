@@ -1,6 +1,6 @@
 'use strict';
 
-localStorage.dataPoints = [];
+// localStorage.dataPoints = [];
 
 function DataPoint (date, prescription, dosage, tLevel, eLevel, logEntry){
   this.date = date;
@@ -9,7 +9,7 @@ function DataPoint (date, prescription, dosage, tLevel, eLevel, logEntry){
   this.tLevel = tLevel;
   this.eLevel = eLevel;
   this.logEntry = logEntry;
-  localstorage.dataPoints.push(this);
+  localStorage.dataPoints = this;
 };
 
 DataPoint.prototype.toHtml = function (){
