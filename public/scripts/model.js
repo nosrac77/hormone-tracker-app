@@ -4,13 +4,13 @@ var localstorage = localstorage || {};
 
 localstorage.dataPoints = [];
 
-function DataPoint (date, prescription, dosage, tLevel, eLevel, log){
+function DataPoint (date, prescription, dosage, tLevel, eLevel, logEntry){
   this.date = date;
   this.prescription = prescription;
   this.dosage = dosage;
   this.tLevel = tLevel;
   this.eLevel = eLevel;
-  this.log = log;
+  this.logEntry = logEntry;
   localstorage.dataPoints.push(this);
 };
 
@@ -21,21 +21,8 @@ DataPoint.prototype.toHtml = function (){
 
 $('#submit-button').on('click', function(e){
   e.preventDefault();
-  // var prescription = $('#prescription').val();
-  // var eLevel = parseInt($('#eLevel').val());
-  // var tLevel = parseInt($('#tLevel').val());
-  // var dosage = parseInt($('#dosage').val());
-  // var date = $('#date').val();
-  // var logEntry = $('#entry-form').val();
-  // console.log(prescription, eLevel, tLevel, dosage, date, logEntry);
-  $.post('/submit', {
-    prescription: $('#prescription').val(),
-    eLevel: parseInt($('#eLevel').val()),
-    tLevel: parseInt($('#tLevel').val()),
-    dosage: parseInt($('#dosage').val()),
-    date: $('#date').val(),
-    logEntry: $('#entry-form').val()
-  })
+  var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#entry-form').val());
+  $.post('/submit', obj)
     .then(console.log('post complete'))
     .catch(console.error);
 });
