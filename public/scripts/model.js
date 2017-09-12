@@ -22,7 +22,5 @@ DataPoint.prototype.toHtml = function (){
 $('#submit-button').on('click', function(e){
   e.preventDefault();
   var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#entry-form').val());
-  $.post('/submit', obj)
-    .then(console.log('post complete'))
-    .catch(console.error);
+  $.post('/submit', obj).then(console.log('post complete')).catch(console.error);
 });
