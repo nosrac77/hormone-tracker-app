@@ -21,21 +21,23 @@ DataPoint.prototype.toHtml = function (){
 
 $('#submit-button').on('click', function(e){
   e.preventDefault();
-  var userLogObj = {
+  // var userLogObj = {
+  //   prescription: $('#prescription').val(),
+  //   eLevel: parseInt($('#eLevel').val()),
+  //   tLevel: parseInt($('#tLevel').val()),
+  //   dosage: parseInt($('#dosage').val()),
+  //   date: $('#date').val(),
+  //   log: $('#log-form').val()
+  // };
+  // console.log(userLogObj);
+  $.post('/submit', {
     prescription: $('#prescription').val(),
     eLevel: parseInt($('#eLevel').val()),
     tLevel: parseInt($('#tLevel').val()),
     dosage: parseInt($('#dosage').val()),
     date: $('#date').val(),
     log: $('#log-form').val()
-  };
-  console.log(userLogObj);
-  var jsonObj = JSON.stringify(userLogObj);
-  insertRecord(jsonObj);
-});
-
-function insertRecord(obj){
-  $.post('/submit', obj)
+  })
     .then(console.log('post complete'))
     .catch(console.error);
-}
+});
