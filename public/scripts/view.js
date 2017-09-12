@@ -14,7 +14,7 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart (ctx, {
   type: 'line',
   data: {
-    labels: [localstorage.dataPoints.date],
+    labels: [localStorage.dataPoints.date],
     datasets: [{
       label: "Estrogen",
       backgroundColor: 'rgb(238, 117, 234)',
@@ -26,7 +26,7 @@ var chart = new Chart (ctx, {
       pointStyle: 'circle',
       showLines: true,
       fontColor: 'rgb(255, 255, 255)',
-      data: [localstorage.dataPoints.eLevel],
+      data: [localStorage.dataPoints.eLevel],
     },
     {
       label: "Testosterone",
@@ -39,7 +39,7 @@ var chart = new Chart (ctx, {
       pointStyle: 'circle',
       showLines: true,
       fontColor: 'rgb(255, 255, 255)',
-      data: [localstorage.dataPoints.tLevel],
+      data: [localStorage.dataPoints.tLevel],
     }]
   },
 });
