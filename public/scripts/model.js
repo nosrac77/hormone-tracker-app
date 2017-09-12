@@ -18,25 +18,22 @@ DataPoint.prototype.toHtml = function (){
    //manipulate template strings here so that the dom renders them to #log section
 
 };
+var prescription = $('#prescription').val();
+var eLevel = parseInt($('#eLevel').val());
+var tLevel = parseInt($('#tLevel').val());
+var dosage = parseInt($('#dosage').val());
+var date = $('#date').val();
+var log = $('#log-form').val();
 
 $('#submit-button').on('click', function(e){
   e.preventDefault();
-  // var userLogObj = {
-  //   prescription: $('#prescription').val(),
-  //   eLevel: parseInt($('#eLevel').val()),
-  //   tLevel: parseInt($('#tLevel').val()),
-  //   dosage: parseInt($('#dosage').val()),
-  //   date: $('#date').val(),
-  //   log: $('#log-form').val()
-  // };
-  // console.log(userLogObj);
   $.post('/submit', {
-    prescription: $('#prescription').val(),
-    eLevel: parseInt($('#eLevel').val()),
-    tLevel: parseInt($('#tLevel').val()),
-    dosage: parseInt($('#dosage').val()),
-    date: $('#date').val(),
-    log: $('#log-form').val()
+    prescription: prescription,
+    eLevel: eLevel,
+    tLevel: tLevel,
+    dosage: dosage,
+    date: date,
+    log: log
   })
     .then(console.log('post complete'))
     .catch(console.error);
