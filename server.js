@@ -15,16 +15,48 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
 app.post('/submit', function(request, response) {
-  client.query(`
-    INSERT INTO users ("date", "prescription", "dosage", "tlevel", "eLevel", "user_log")
-    VALUES($1, $2, $3, $4, $5, $6)`,
-    [request.body.date, request.body.prescription, request.body.dosage, request.body.tlevel, request.body.eLevel, request.body.log],
-    function(err){
-      if (err) console.error(err);
-      response.send('insert complete');
+  client.query(
+    'INSERT INTO users("userInfoSharing") VALUES(true)',
+    function(err) {
+      if (err) console.error(err)
+      queryTwo()
     }
-  );
+  )
+
+  function queryTwo() {
+    client.query(
+      `SELECT id FROM users`,
+      function(err, result) {
+        if (err) console.error(err)
+        queryThree(result.rows[0].author_id)
+      }
+    )
+  }
+
+  function queryThree(user_id) {
+    client.query(`
+      INSERT INTO users ("user_id", "date", "prescription", "dosage", "tLevel", "eLevel", "logEntry")
+      VALUES($1, $2, $3, $4, $5, $6, $7)`,
+      [user_id, request.body.date, request.body.prescription, request.body.dosage, request.body.tlevel, request.body.eLevel, request.body.log],
+      function(err){
+        if (err) console.error(err);
+        response.send('insert complete');
+      }
+    );
+  }
 });
+
+// app.post('/submit', function(request, response) {
+//   client.query(`
+//     INSERT INTO users ("date", "prescription", "dosage", "tLevel", "eLevel", "logEntry")
+//     VALUES($1, $2, $3, $4, $5, $6)`,
+//     [request.body.date, request.body.prescription, request.body.dosage, request.body.tlevel, request.body.eLevel, request.body.log],
+//     function(err){
+//       if (err) console.error(err);
+//       response.send('insert complete');
+//     }
+//   );
+// });
 
 app.listen(PORT, function() {
   console.log('Listening on port ' + PORT);

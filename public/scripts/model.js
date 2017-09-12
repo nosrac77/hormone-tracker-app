@@ -26,15 +26,15 @@ $('#submit-button').on('click', function(e){
   var tLevel = parseInt($('#tLevel').val());
   var dosage = parseInt($('#dosage').val());
   var date = $('#date').val();
-  var log = $('#log-form').val();
+  var logEntry = $('#log-form').val();
   console.log(prescription, eLevel, tLevel, dosage, date, log);
   $.post('/submit', {
     prescription: prescription,
     eLevel: eLevel,
-    tlevel: tLevel,
+    tLevel: tLevel,
     dosage: dosage,
     date: date,
-    log: log
+    logEntry: log
   })
     .then(console.log('post complete'))
     .catch(console.error);
