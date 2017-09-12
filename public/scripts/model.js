@@ -18,16 +18,16 @@ DataPoint.prototype.toHtml = function (){
    //manipulate template strings here so that the dom renders them to #log section
 
 };
-var prescription = $('#prescription').val();
-var eLevel = parseInt($('#eLevel').val());
-var tLevel = parseInt($('#tLevel').val());
-var dosage = parseInt($('#dosage').val());
-var date = $('#date').val();
-var log = $('#log-form').val();
-console.log(prescription, eLevel, tLevel, dosage, date, log);
 
 $('#submit-button').on('click', function(e){
   e.preventDefault();
+  var prescription = $('#prescription').val();
+  var eLevel = parseInt($('#eLevel').val());
+  var tLevel = parseInt($('#tLevel').val());
+  var dosage = parseInt($('#dosage').val());
+  var date = $('#date').val();
+  var log = $('#log-form').val();
+  console.log(prescription, eLevel, tLevel, dosage, date, log);
   $.post('/submit', {
     prescription: prescription,
     eLevel: eLevel,
