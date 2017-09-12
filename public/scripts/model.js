@@ -38,4 +38,10 @@ $('#submit-button').on('click', function(e){
   })
     .then(console.log('post complete'))
     .catch(console.error);
+  function render(){
+    var obj = new DataPoint(date, prescription, dosage, tLevel, eLevel, log);
+    console.log(obj);
+    var template = Handlebars.compile($('#entry-template').html());
+    template(obj);
+  }
 });
