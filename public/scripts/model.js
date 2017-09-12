@@ -24,6 +24,7 @@ var tLevel = parseInt($('#tLevel').val());
 var dosage = parseInt($('#dosage').val());
 var date = $('#date').val();
 var log = $('#log-form').val();
+console.log(prescription, eLevel, tLevel, dosage, date, log);
 
 $('#submit-button').on('click', function(e){
   e.preventDefault();
