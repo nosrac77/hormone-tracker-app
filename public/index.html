@@ -11,6 +11,18 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="stylesheet" href="styles/state.css">
+    <script id="entry-template" type="x-handlebars-template">
+      <h2>{{date}}</h2>
+      <p><span>Log entry: </span>
+        <br>{{log}}
+        </p>
+        <ul>
+        <li><span>Prescription: </span>{{prescription}}</li>
+        <li><span>Dosage: </span>{{dosage}}</li>
+        <li><span>Testosterone level: </span>{{tLevel}}</li>
+        <li><span>Estrogen level: </span>{{eLevel}}</li>
+        </ul>
+      </script>
   </head>
   <body>
     <h1>MedSwarm</h1>
@@ -49,19 +61,8 @@
     </div>
     <div class="data" id="log">
     <h1>Log</h1>
-      <section>
-        <script id="entry-template" type="x-handlebars-template">
-          <h2>{{date}}</h2>
-          <p><span>Log entry: </span>
-            <br>{{log}}
-            </p>
-            <ul>
-            <li><span>Prescription: </span>{{prescription}}</li>
-            <li><span>Dosage: </span>{{dosage}}</li>
-            <li><span>Testosterone level: </span>{{tLevel}}</li>
-            <li><span>Estrogen level: </span>{{eLevel}}</li>
-            </ul>
-          </script>
+      <section id="user-log-info">
+
           <!-- log appends here at the end of #entry-template-->
       </section>
     </div>

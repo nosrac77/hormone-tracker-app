@@ -42,7 +42,7 @@ $('#submit-button').on('click', function(e){
     var obj = new DataPoint(date, prescription, dosage, tLevel, eLevel, log);
     console.log(obj);
     var template = Handlebars.compile($('#entry-template').html());
-    template(obj);
+    $('#user-log-info').append(template(obj));
   }
   render();
 });
