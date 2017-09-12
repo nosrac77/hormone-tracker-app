@@ -14,9 +14,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
-// app.get('/submit', function(request, response){
-//   response.sendFile('index.html', root: {'./public'});
-// });
+app.get('/submit', function(request, response){
+  client.query(`SELECT  * FROM logs`)
+  .then(function(result){
+    response.send(result.rows);
+  })
+  .catch(function(err){
+    console.error(err);
+  })
+});
 
 app.post('/submit', function(request, response) {
   console.log('app.post has fired');

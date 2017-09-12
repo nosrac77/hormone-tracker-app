@@ -30,7 +30,11 @@ $('#submit-button').on('click', function(e){
   };
   console.log(userLogObj);
   var jsonObj = JSON.stringify(userLogObj);
-  $.post('/submit', jsonObj)
+  insertRecord(jsonObj);
+});
+
+function insertRecord(obj){
+  $.post('/submit', obj)
     .then(console.log('post complete'))
     .catch(console.error);
-});
+}
