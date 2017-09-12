@@ -6,6 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
@@ -14,38 +15,27 @@
   <body>
     <h1>MedSwarm</h1>
     <div id="navbar">
-      <a data-category = "form" class="tab">New Entry</a>
-      <a data-category = "graph" class="tab">Graph</a>
-      <a data-category = "log" class="tab">Log</a>
+      <a data-category="form" class="tab">New Entry</a>
+      <a data-category="graph" class="tab">Graph</a>
+      <a data-category="log" class="tab">Log</a>
     </div>
     <div class="data" id="form">
       <h1>New Entry</h1>
       <section>
-        <form class="user-form">
+        <form id="user-form">
           <label for="date">Lab Date:</label>
-          <br>
           <input type="text" name="date" value="">
-          <br>
           <label for="prescription">Prescription:</label>
-          <br>
           <input type="text" name="prescription" value="">
-          <br>
           <label for="dosage">Dosage:</label>
-          <br>
           <input type="text" name="dosage" value="">
-          <br>
           <label for="tLevel">Testosterone Levels:</label>
-          <br>
           <input type="number" name="tLevel" value="">
-          <br>
           <label for="eLevel">Estrogen Levels:</label>
-          <br>
           <input type="number" name="eLevel" value="">
-          <br>
           <label for="log">Personal Log:</label>
-          <br>
           <textarea id="log-form" name="log" rows="8" cols="80"></textarea>
-          <input type="submit" value="Submit Form!">
+          <input id="submit-button" type="submit" value="Submit Form!">
         </form>
       </section>
     </div>

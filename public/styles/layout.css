@@ -1,70 +1,51 @@
 #navbar {
-  width: 90%;
-  border-style: solid;
-  border-color: orange;
+  text-align: center;
 }
 
-label {
+.tab {
   margin-left: 5%;
-  margin-right: 10%;
-}
-input{
-  margin-left: 5%;
-  margin-right: 10%;
+  margin-right: 5%;
 }
 
-#graph, #form, #log {
+.data {
   width: 100%;
-}
-
-head {
-  width: 100%
-}
-
-.tab  {
-  margin-left:15%;
-}
-
-section {
-  width: 90%;
-  border-style: solid;
-  border-color: orange;
-  height: 500px;
-  margin-top: 2.5%;
-}
-
-canvas{
-  height: 100%;
-  width: 100%;
+  display: block;
 }
 
 @media screen and (max-width: 450px){
-  #form, #graph, #log{
+  .data {
     display: none;
   }
-  body{
-    max-width: 100%;
-    margin-left: 0%;
-    margin-right: 0%;
+  body {
+    margin-left: 2%;
+    margin-right: 2%;
   }
 }
 
 @media screen and (min-width:451px) and (max-width: 900px) {
-  #form, #graph, #log{
-    display: block;
-  }
-  body{
-    max-width: 90%;
-    margin-left: 10%;
+  body {
+    margin-left: 5%;
+    margin-right: 5%;
   }
 }
 
 @media screen and (min-width: 900px) {
-  #form, #graph, #log{
-    display: inline;
+  .data {
+    height: 100%;
+    width: 33%;
+    float: left;
   }
-  body{
-    max-width: 90%;
-    margin-left: 10%;
+  #form {
+    margin-right: 0.5%;
+  }
+  #log {
+    margin-left: 0.5%;
+  }
+  #log-form {
+    width: 97%;
+  }
+  body {
+    margin-left: 15%;
+    margin-right: 15%;
   }
 }
