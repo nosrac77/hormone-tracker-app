@@ -4,7 +4,7 @@ var localstorage = localstorage || {};
 
 localstorage.dataPoints = [];
 
-function DataPoint (date, dosage, tLevel, eLevel, log){
+function DataPoint (date, prescription, dosage, tLevel, eLevel, log){
   this.date = date;
   this.prescription = prescription;
   this.dosage = dosage;
@@ -22,6 +22,7 @@ DataPoint.prototype.toHtml = function (){
 $('#submit-button').on('click', function(e){
   e.preventDefault();
   var userLogObj = {
+    prescription: $('#prescription').val(),
     eLevel: parseInt($('#eLevel').val()),
     tLevel: parseInt($('#tLevel').val()),
     dosage: parseInt($('#dosage').val()),
