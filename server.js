@@ -13,6 +13,19 @@ client.on('error', err => console.error('you fucked up somehow man, here\'s the 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
+
+app.post('/submit', function(request, response) {
+  client.query(`
+    INSERT INTO users ("date", "prescription", "dosage", "tlevel", "eLevel", "user_log")
+    VALUES($1, $2, $3, $4, $5, $6)`,
+    [request.body.date, request.body.prescription, request.body.dosage, request.body.tlevel, request.body.eLevel, request.body.log],
+    function(err){
+      if (err) console.error(err);
+      response.send('insert complete');
+    }
+  );
+});
+
 app.listen(PORT, function() {
   console.log('Listening on port ' + PORT);
 });
