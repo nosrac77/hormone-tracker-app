@@ -7,7 +7,8 @@ function DataPoint (date, prescription, dosage, tLevel, eLevel, logEntry){
   this.tLevel = tLevel;
   this.eLevel = eLevel;
   this.logEntry = logEntry;
-  localStorage.dataPoints += JSON.stringify(this);
+  var dataArray = [];
+  localStorage.dataPoints = dataArray.push(JSON.stringify(this));
 };
 
 DataPoint.prototype.toHtml = function (){
