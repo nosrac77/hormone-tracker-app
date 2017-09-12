@@ -44,4 +44,5 @@ $('#submit-button').on('click', function(e){
     var template = Handlebars.compile($('#entry-template').html());
     template(obj);
   }
+  render();
 });
