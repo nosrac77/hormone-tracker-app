@@ -35,7 +35,7 @@ app.post('/submit', function(request, response) {
 
   function queryThree(user_id) {
     client.query(`
-      INSERT INTO users ("user_id", "date", "prescription", "dosage", "tLevel", "eLevel", "logEntry")
+      INSERT INTO logs ("user_id", "date", "prescription", "dosage", "tLevel", "eLevel", "logEntry")
       VALUES($1, $2, $3, $4, $5, $6, $7)`,
       [user_id, request.body.date, request.body.prescription, request.body.dosage, request.body.tlevel, request.body.eLevel, request.body.log],
       function(err){
