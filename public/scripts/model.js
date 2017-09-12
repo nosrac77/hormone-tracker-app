@@ -21,28 +21,21 @@ DataPoint.prototype.toHtml = function (){
 
 $('#submit-button').on('click', function(e){
   e.preventDefault();
-  var prescription = $('#prescription').val();
-  var eLevel = parseInt($('#eLevel').val());
-  var tLevel = parseInt($('#tLevel').val());
-  var dosage = parseInt($('#dosage').val());
-  var date = $('#date').val();
-  var logEntry = $('#entry-form').val();
-  console.log(prescription, eLevel, tLevel, dosage, date, logEntry);
+  // var prescription = $('#prescription').val();
+  // var eLevel = parseInt($('#eLevel').val());
+  // var tLevel = parseInt($('#tLevel').val());
+  // var dosage = parseInt($('#dosage').val());
+  // var date = $('#date').val();
+  // var logEntry = $('#entry-form').val();
+  // console.log(prescription, eLevel, tLevel, dosage, date, logEntry);
   $.post('/submit', {
-    prescription: prescription,
-    eLevel: eLevel,
-    tLevel: tLevel,
-    dosage: dosage,
-    date: date,
-    logEntry: logEntry
+    prescription: $('#prescription').val(),
+    eLevel: parseInt($('#eLevel').val()),
+    tLevel: parseInt($('#tLevel').val()),
+    dosage: parseInt($('#dosage').val()),
+    date: $('#date').val(),
+    logEntry: $('#entry-form').val()
   })
     .then(console.log('post complete'))
     .catch(console.error);
-  // function render(){
-  //   var obj = new DataPoint(date, prescription, dosage, tLevel, eLevel, log);
-  //   console.log(obj);
-  //   var template = Handlebars.compile($('#entry-template').html());
-  //   $('#user-log-info').append(template(obj));
-  // }
-  // render();
 });

@@ -46,18 +46,6 @@ app.post('/submit', function(request, response) {
   }
 });
 
-// app.post('/submit', function(request, response) {
-//   client.query(`
-//     INSERT INTO users ("date", "prescription", "dosage", "tLevel", "eLevel", "logEntry")
-//     VALUES($1, $2, $3, $4, $5, $6)`,
-//     [request.body.date, request.body.prescription, request.body.dosage, request.body.tlevel, request.body.eLevel, request.body.log],
-//     function(err){
-//       if (err) console.error(err);
-//       response.send('insert complete');
-//     }
-//   );
-// });
-
 app.listen(PORT, function() {
   console.log('Listening on port ' + PORT);
 });
