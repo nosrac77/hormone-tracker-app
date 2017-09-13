@@ -20,6 +20,6 @@ $('#submit-button').on('click', function(e){
   e.preventDefault();
   var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#entry-form').val());
   DataPoint.allData.push(obj);
-  localStorage.dataPoints = DataPoints.allData;
+  localStorage.dataPoints = DataPoint.allData;
   $.post('/submit', obj).then(console.log('post complete')).catch(console.error);
 });
