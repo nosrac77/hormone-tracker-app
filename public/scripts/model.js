@@ -14,9 +14,10 @@ $('#submit-button').on('click', function(e){
   var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#entry-form').val());
   var template = Handlebars.compile($('#entry-template').html());
   if(!localStorage.dataPoints) localStorage.dataPoints = JSON.stringify([]);
+  console.log(localStorage.dataPoints);
   DataPoint.tempData = JSON.parse(localStorage.dataPoints);
   DataPoint.tempData.push(obj);
-  DataPoint.tempData.forEach(function(data){$('#entry-template').append(template(data));});
+  DataPoint.tempData.forEach(function(data){$('#user-log-info').append(template(data));});
   localStorage.dataPoints = JSON.stringify(tempData);
   $.post('/submit', obj).then(console.log('post complete')).catch(console.error);
 });
