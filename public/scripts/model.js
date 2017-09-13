@@ -9,18 +9,14 @@ function DataPoint (date, prescription, dosage, tLevel, eLevel, logEntry){
   this.logEntry = logEntry;
 };
 
-function toHtml(obj) {
-  var source   = $('#entry-template').html();
-  var template = Handlebars.compile(source);
-  return template(obj);
-};
-
 $('#submit-button').on('click', function(e){
   // e.preventDefault();
   var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#entry-form').val());
+  var template = Handlebars.compile($('#entry-template').html());
   if(!localStorage.dataPoints) localStorage.dataPoints = JSON.stringify([]);
-  var tempData = JSON.parse(localStorage.dataPoints);
-  tempData.push(obj);
+  DataPoint.tempData = JSON.parse(localStorage.dataPoints);
+  DataPoint.tempData.push(obj);
+  DataPoint.tempData.forEach(function(data){$('#entry-template').append(template(data));});
   localStorage.dataPoints = JSON.stringify(tempData);
   $.post('/submit', obj).then(console.log('post complete')).catch(console.error);
 });
