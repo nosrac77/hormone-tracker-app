@@ -10,7 +10,7 @@ function DataPoint (date, prescription, dosage, tLevel, eLevel, logEntry){
 };
 
 $('#submit-button').on('click', function(e){
-  // e.preventDefault();
+  e.preventDefault();
   var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#entry-form').val());
   var template = Handlebars.compile($('#entry-template').html());
   if(!localStorage.dataPoints) localStorage.dataPoints = JSON.stringify([]);
