@@ -9,10 +9,10 @@ function DataPoint (date, prescription, dosage, tLevel, eLevel, logEntry){
   this.logEntry = logEntry;
 };
 
-function toHtml() {
+function toHtml(obj) {
   var source   = $('#entry-template').html();
   var template = Handlebars.compile(source);
-  return template(this);
+  return template(obj);
 };
 
 $('#submit-button').on('click', function(e){
