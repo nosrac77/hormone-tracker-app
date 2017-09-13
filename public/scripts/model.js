@@ -18,6 +18,6 @@ $('#submit-button').on('click', function(e){
   DataPoint.tempData = JSON.parse(localStorage.dataPoints);
   DataPoint.tempData.push(obj);
   DataPoint.tempData.forEach(function(data){$('#user-log-info').append(template(data));});
-  localStorage.dataPoints = JSON.stringify(tempData);
+  localStorage.dataPoints = JSON.stringify(DataPoint.tempData);
   $.post('/submit', obj).then(console.log('post complete')).catch(console.error);
 });
