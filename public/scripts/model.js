@@ -7,9 +7,9 @@ function DataPoint (date, prescription, dosage, tLevel, eLevel, logEntry){
   this.tLevel = tLevel;
   this.eLevel = eLevel;
   this.logEntry = logEntry;
-  var dataArray = [];
-  localStorage.dataPoints = dataArray.push(JSON.stringify(this));
 };
+
+DataPoints.allData = [];
 
 DataPoint.prototype.toHtml = function (){
    //manipulate template strings here so that the dom renders them to #log section
@@ -19,5 +19,7 @@ DataPoint.prototype.toHtml = function (){
 $('#submit-button').on('click', function(e){
   e.preventDefault();
   var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#entry-form').val());
+  DataPoints.allData.push(obj);
+  localStorage.dataPoints = DataPoints.allData;
   $.post('/submit', obj).then(console.log('post complete')).catch(console.error);
 });
