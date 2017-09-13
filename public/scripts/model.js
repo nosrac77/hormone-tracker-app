@@ -9,7 +9,7 @@ function DataPoint (date, prescription, dosage, tLevel, eLevel, logEntry){
   this.logEntry = logEntry;
 };
 
-DataPoint.prototype.toHtml = function() {
+function toHtml() {
   var source   = $('#entry-template').html();
   var template = Handlebars.compile(source);
   return template(this);
