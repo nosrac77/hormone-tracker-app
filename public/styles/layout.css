@@ -2,6 +2,28 @@
   text-align: center;
 }
 
+#navbar-header {
+  margin-bottom: 0;
+}
+
+#navbar-slogan {
+  margin-left: 1.2%;
+}
+
+#navbar-header-slogan {
+  display: inline-block;
+  width: 60%;
+  margin-bottom: 6%;
+  padding-top: 4%;
+}
+
+#navbar-img {
+  float: right;
+  padding-top: 2%;
+  width: 35%;
+  display: none;
+}
+
 #app-body-content {
   padding-left: 3%;
   padding-right: 3%;
@@ -18,12 +40,29 @@
   height: 25%;
 }
 
+#user-log-info {
+  overflow-y: scroll;
+}
+
+#form-textarea {
+  width: 98.7%;
+}
+
+#submit-button {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
 @media screen and (max-width: 450px){
   .data {
     display: none;
   }
   #navbar-header {
     font-size: 3.1em;
+  }
+  #navbar-header-slogan {
+    width: 100%;
   }
 }
 
@@ -35,6 +74,13 @@
   #navbar-header {
     font-size: 4em;
   }
+  #navbar-img {
+    display: block;
+  }
+  /*#date, #prescription, #dosage {
+    float: left;
+    width: 10%;
+  }*/
 }
 
 @media screen and (min-width: 900px) {
@@ -66,7 +112,7 @@
   #navbar-header:hover{
     cursor: pointer;
   }
-  img {
+  #navbar-img {
     display: block;
   }
 }
