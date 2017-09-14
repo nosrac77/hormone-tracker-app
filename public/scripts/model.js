@@ -1,41 +1,23 @@
 'use strict';
 
-var localstorage = localstorage || {};
-
-localstorage.dataPoints = [];
-
-function DataPoint (date, prescription, dosage, tLevel, eLevel, log){
+function DataPoint (date, prescription, dosage, tLevel, eLevel, logEntry){
   this.date = date;
   this.prescription = prescription;
   this.dosage = dosage;
   this.tLevel = tLevel;
   this.eLevel = eLevel;
-  this.log = log;
-  localstorage.dataPoints.push(this);
-};
-
-DataPoint.prototype.toHtml = function (){
-   //manipulate template strings here so that the dom renders them to #log section
-
+  this.logEntry = logEntry;
 };
 
 $('#submit-button').on('click', function(e){
   e.preventDefault();
-  var prescription = $('#prescription').val();
-  var eLevel = parseInt($('#eLevel').val());
-  var tLevel = parseInt($('#tLevel').val());
-  var dosage = parseInt($('#dosage').val());
-  var date = $('#date').val();
-  var log = $('#log-form').val();
-  console.log(prescription, eLevel, tLevel, dosage, date, log);
-  $.post('/submit', {
-    prescription: prescription,
-    eLevel: eLevel,
-    tlevel: tLevel,
-    dosage: dosage,
-    date: date,
-    log: log
-  })
-    .then(console.log('post complete'))
-    .catch(console.error);
+  var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#entry-form').val());
+  var template = Handlebars.compile($('#entry-template').html());
+  if(!localStorage.dataPoints) localStorage.dataPoints = JSON.stringify([]);
+  console.log(localStorage.dataPoints);
+  DataPoint.tempData = JSON.parse(localStorage.dataPoints);
+  DataPoint.tempData.push(obj);
+  DataPoint.tempData.forEach(function(data){$('#user-log-info').append(template(data));});
+  localStorage.dataPoints = JSON.stringify(DataPoint.tempData);
+  $.post('/submit', obj).then(console.log('post complete')).catch(console.error);
 });
