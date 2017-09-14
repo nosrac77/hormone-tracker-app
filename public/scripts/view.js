@@ -6,7 +6,10 @@ DataPoint.handleTabs = function() {
     var dataCat = $(this).attr('data-category');
     $('#' + dataCat).show();
     console.log('Showing: ' + dataCat);
-  })
+  });
+  $('#navbar-header').on('click', function(){
+    $('.data').show();
+  });
 };
 
 DataPoint.tempData = JSON.parse(localStorage.dataPoints);

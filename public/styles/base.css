@@ -1,11 +1,13 @@
 body {
-  margin-left: 10%;
-  margin-right: 10%;
+  background-color: #44aaf8;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 h1 {
-  font-size: 2.8em;
+  font-size: 2.3em;
   margin-bottom: 2%;
+  font-family: 'Comfortaa', cursive;
 }
 
 p {
@@ -21,12 +23,19 @@ input {
 }
 
 section {
-  padding: 2%;
   border: 5px solid #88c9fb;
   border-radius: 5px;
+  height: 351px;
+  padding: 2%;
 }
 
 canvas {
   height: 100%;
   width: 100%;
+}
+
+footer {
+  clear: both;
+  padding-top: 4%;
+  padding-bottom: 4%;
 }

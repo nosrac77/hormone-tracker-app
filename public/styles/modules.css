@@ -1,10 +1,18 @@
+#app-body-content {
+  background-color: white;
+}
+
 #navbar {
   border: 5px solid #88c9fb;
   border-radius: 5px;
   margin-bottom: 5%;
 }
 
-#entry-form {
+#navbar-header {
+  padding-top: 4%;
+}
+
+#form-textarea {
   width: 98.7%;
 }
 

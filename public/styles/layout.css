@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+#app-body-content {
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
 .tab {
   margin-left: 5%;
   margin-right: 5%;
@@ -10,15 +15,15 @@
 .data {
   width: 100%;
   display: block;
+  height: 25%;
 }
 
 @media screen and (max-width: 450px){
   .data {
     display: none;
   }
-  body {
-    margin-left: 2%;
-    margin-right: 2%;
+  #navbar-header {
+    font-size: 3.1em;
   }
 }
 
@@ -26,6 +31,9 @@
   body {
     margin-left: 5%;
     margin-right: 5%;
+  }
+  #navbar-header {
+    font-size: 4em;
   }
 }
 
@@ -42,14 +50,23 @@
   #log {
     margin-left: 0.5%;
   }
-  #log-form {
+  #form-textarea {
     width: 97%;
   }
   body {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 7%;
+    margin-right: 7%;
   }
   #navbar {
     display: none;
+  }
+  #navbar-header {
+    font-size: 4.5em;
+  }
+  #navbar-header:hover{
+    cursor: pointer;
+  }
+  img {
+    display: block;
   }
 }
