@@ -9,12 +9,13 @@ DataPoint.handleTabs = function() {
   })
 };
 
+DataPoint.tempData = JSON.parse(localStorage.dataPoints);
 var ctx = document.getElementById('myChart').getContext('2d');
 
 var chart = new Chart (ctx, {
   type: 'line',
   data: {
-    labels: [localstorage.dataPoints.date],
+    labels: DataPoint.tempData.date,
     datasets: [{
       label: "Estrogen",
       backgroundColor: 'rgb(238, 117, 234)',
@@ -26,7 +27,7 @@ var chart = new Chart (ctx, {
       pointStyle: 'circle',
       showLines: true,
       fontColor: 'rgb(255, 255, 255)',
-      data: [localstorage.dataPoints.eLevel],
+      data: DataPoint.tempData.eLevel,
     },
     {
       label: "Testosterone",
@@ -39,7 +40,7 @@ var chart = new Chart (ctx, {
       pointStyle: 'circle',
       showLines: true,
       fontColor: 'rgb(255, 255, 255)',
-      data: [localstorage.dataPoints.tLevel],
+      data: DataPoint.tempData.tLevel,
     }]
   },
 });
