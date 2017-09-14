@@ -11,6 +11,19 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="stylesheet" href="styles/state.css">
+    <link rel="shortcut icon" href="">
+    <script id="entry-template" type="text/x-handlebars-template">
+      <h2>{{date}}</h2>
+      <p><span>Log entry: </span>
+        <br>{{logEntry}}
+      </p>
+      <ul>
+        <li><span>Prescription: </span>{{prescription}}</li>
+        <li><span>Dosage: </span>{{dosage}}</li>
+        <li><span>Testosterone level: </span>{{tLevel}}</li>
+        <li><span>Estrogen level: </span>{{eLevel}}</li>
+      </ul>
+    </script>
   </head>
   <body>
     <h1>MedSwarm</h1>
@@ -34,7 +47,7 @@
           <label for="eLevel">Estrogen Levels:</label>
           <input id="eLevel" type="number" name="eLevel" value="">
           <label for="log">Personal Log:</label>
-          <textarea id="log-form" name="log" rows="8" cols="80"></textarea>
+          <textarea id="entry-form" name="log" rows="8" cols="80"></textarea>
           <input id="submit-button" type="submit" value="Submit Form!">
         </form>
       </section>
@@ -44,31 +57,20 @@
       <section>
         <!-- graph blerb text goes here -->
 
-        <canvas id="myChart"></canvas>'
+        <canvas id="myChart"></canvas>
       </section>
     </div>
     <div class="data" id="log">
     <h1>Log</h1>
-      <section>
-        <script id="entry-template" type="x-handlebars-template">
-          <h2>{{date}}</h2>
-          <p><span>Log entry: </span>
-            <br>{{log}}
-            </p>
-            <ul>
-            <li><span>Prescription: </span>{{prescription}}</li>
-            <li><span>Dosage: </span>{{dosage}}</li>
-            <li><span>Testosterone level: </span>{{tLevel}}</li>
-            <li><span>Estrogen level: </span>{{eLevel}}</li>
-            </ul>
-          </script>
+      <section id="user-log-info">
+
           <!-- log appends here at the end of #entry-template-->
       </section>
     </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
-  <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v4.0.10.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
   <script type="text/javascript" src="scripts/model.js"></script>
   <script type="text/javascript" src="scripts/view.js"></script>
   <script type="text/javascript" src="scripts/controller.js"></script>
