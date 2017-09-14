@@ -5,7 +5,7 @@ const pg = require('pg');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const conString = process.env.DATABASE_URL || 'postgres://postgres:Skrillexfan7@localhost:5432';
+const conString = process.env.DATABASE_URL || 'postgres://localhost:5432';
 const client = new pg.Client(conString);
 pg.defaults.ssl = true;
 client.connect();

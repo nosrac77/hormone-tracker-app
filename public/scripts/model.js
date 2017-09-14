@@ -16,7 +16,12 @@ function DataPoint (date, prescription, dosage, tLevel, eLevel, log){
 
 DataPoint.prototype.toHtml = function (){
    //manipulate template strings here so that the dom renders them to #log section
+  var source = $('entry-template').html();
+  var template = Handlebars.compile(source);
 
+
+
+  return template(this);
 };
 
 $('#submit-button').on('click', function(e){
