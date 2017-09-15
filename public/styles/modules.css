@@ -14,11 +14,11 @@
   color: #ef74ea;
 }
 
-#log-user-date {
+#log-entry-date {
   font-family: 'Cookie', cursive;
   font-size: 2em;
 }
 
-#log-user-divider {
+#log-entry-divider {
   width: 100%;
 }

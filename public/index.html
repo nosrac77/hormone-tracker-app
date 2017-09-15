@@ -15,15 +15,15 @@
 <div class="hidden">
   <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
     <script id="entry-template" type="text/x-handlebars-template">
-      <img id ="log-user-divider"src="http://hddfhm.com/images/elegant-accent-divider-clipart-10.png"/>
-      <p id="log-user-date" class="log-margin">Date: {{date}}</p>
-      <p id="log-user-entry" class="log-margin"><span>Log entry</span>: {{logEntry}}</p>
+      <img id ="log-entry-divider"src="http://hddfhm.com/images/elegant-accent-divider-clipart-10.png"/>
+      <p id="log-entry-date">Date: {{date}}</p>
       <p class="log-hormone-info"><span>Prescription</span>: {{prescription}}</p>
       <ul>
         <li class="log-hormone-info"><span>Weekly Dosage</span>: {{dosage}}</li>
         <li class="log-hormone-info"><span>Testosterone level</span>: {{tLevel}} (ng/dL)</li>
         <li class="log-hormone-info" id="log-entry-estrogen"><span>Estrogen level</span>: {{eLevel}} (ng/dL)</li>
       </ul>
+      <p id="log-entry-journal"><span>Log entry</span>: {{logEntry}}</p>
     </script>
   </head>
   <body>
