@@ -1,7 +1,7 @@
 'use strict';
 
 $(document).ready(function (){
-  $('body').fadeIn();
+  $('div.hidden').fadeIn('slow').removeClass('hidden');
 })
 
 DataPoint.handleTabs = function() {
