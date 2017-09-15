@@ -31,7 +31,7 @@ app.post('/submit', function(request, response) {
         queryThree(result.rows[0].user_id);
         console.log(result.rows[0].user_id);
         var id = result.rows[0].user_id;
-        response.send('hope' + id);
+        response.send('id');
       }
     )
   }
