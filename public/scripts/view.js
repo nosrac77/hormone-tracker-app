@@ -1,5 +1,9 @@
 'use strict';
 
+$(document).ready(function (){
+  $('div.hidden').fadeIn('slow').removeClass('hidden');
+})
+
 DataPoint.handleTabs = function() {
   $('.tab').on('click', function(){
     $('.data').hide();
