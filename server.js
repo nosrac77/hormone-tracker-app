@@ -28,7 +28,8 @@ app.post('/submit', function(request, response) {
       `SELECT user_id FROM users`,
       function(err, result) {
         if (err) console.error(err)
-        queryThree(result.rows[0].user_id)
+        // queryThree(result.rows[0].user_id)
+        console.log(result);
       }
     )
   }
@@ -39,8 +40,8 @@ app.post('/submit', function(request, response) {
       VALUES($1, $2, $3, $4, $5, $6, $7)`,
       [user_id, request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry],
       function(err){
-        if (err) console.error(err, result);
-        console.log(result);
+        if (err) console.error(err);
+        response.send('insert complete');
       }
     );
   }
