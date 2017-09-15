@@ -1,14 +1,15 @@
 'use strict';
 
+$(document).ready(function (){
+  $('div.hidden').fadeIn('slow').removeClass('hidden');
+})
+
 DataPoint.handleTabs = function() {
   $('.tab').on('click', function(){
     $('.data').hide();
     var dataCat = $(this).attr('data-category');
     $('#' + dataCat).show();
     console.log('Showing: ' + dataCat);
-  });
-  $('#navbar-header').on('click', function(){
-    $('.data').show();
   });
 };
 
