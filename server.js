@@ -39,7 +39,7 @@ app.post('/submit', function(request, response) {
       VALUES($1, $2, $3, $4, $5, $6, $7)`,
       [user_id, request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry],
       function(err){
-        if (err) console.error(err);
+        if (err) console.error(err, result);
         console.log(result);
       }
     );
