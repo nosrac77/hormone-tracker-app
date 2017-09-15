@@ -16,29 +16,35 @@ app.use(express.static('./public'));
 
 app.post('/submit', function(request, response) {
   client.query(
-    'INSERT INTO users("userInfoSharing") VALUES(true)'
+    'INSERT INTO users("userInfoSharing") VALUES(true)',
+    function(err) {
+      if (err) console.error(err)
+      queryTwo()
+    }
   )
-  .then(function() {
+
+  function queryTwo() {
     client.query(
-      `SELECT user_id FROM users`
+      `SELECT user_id FROM users`,
+      function(err, result) {
+        if (err) console.error(err)
+        queryThree(result.rows[0].user_id)
+      }
     )
-  })
-    .then(function(result) {
-      // response.send(result.rows[0].user_id);
-      queryThree(result.rows[0].user_id);
-    })
-    .catch(console.error);
-});
+  }
 
   function queryThree(user_id) {
     client.query(`
       INSERT INTO logs ("user_id", "date", "prescription", "dosage", "tLevel", "eLevel", "logEntry")
       VALUES($1, $2, $3, $4, $5, $6, $7)`,
-      [user_id, request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry]
-    )
-    .then(response.send('insert complete'))
-    .catch(console.error);
+      [user_id, request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry],
+      function(err){
+        if (err) console.error(err);
+        response.send('insert complete');
+      }
+    );
   }
+});
 
 // app.get('/user/:id', function(request, response) {
 //   client.query(`
