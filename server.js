@@ -28,32 +28,31 @@ app.post('/submit', function(request, response) {
       `SELECT user_id FROM users`,
       function(err, result) {
         if (err) console.error(err)
-        // queryThree(result.rows[0].user_id)
-        console.log(result);
+        queryThree(result.rows[0].user_id)
       }
     )
   }
-// 
-//   function queryThree(user_id) {
-//     client.query(`
-//       INSERT INTO logs ("user_id", "date", "prescription", "dosage", "tLevel", "eLevel", "logEntry")
-//       VALUES($1, $2, $3, $4, $5, $6, $7)`,
-//       [user_id, request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry],
-//       function(err){
-//         if (err) console.error(err);
-//         response.send('insert complete');
-//       }
-//     );
-//   }
-// });
 
-// app.get('/user/:id', function(request, response) {
-//   client.query(`
-//     SELECT user_id FROM users WHERE user_id=$1`,
-//     [request.params.id])
-//     .then(() => response.send(response))
-//     .catch(console.error);
-// });
+  function queryThree(user_id) {
+    client.query(`
+      INSERT INTO logs ("user_id", "date", "prescription", "dosage", "tLevel", "eLevel", "logEntry")
+      VALUES($1, $2, $3, $4, $5, $6, $7)`,
+      [user_id, request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry],
+      function(err){
+        if (err) console.error(err);
+        console.log(result);
+      }
+    );
+  }
+});
+
+app.get('/user/:id', function(request, response) {
+  client.query(`
+    SELECT user_id FROM users WHERE user_id=$1`,
+    [request.params.id])
+    .then(() => response.send(response))
+    .catch(console.error);
+});
 
 app.listen(PORT, function() {
   console.log('Listening on port ' + PORT);
