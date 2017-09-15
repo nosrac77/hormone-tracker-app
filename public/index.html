@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="stylesheet" href="styles/state.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     <script id="entry-template" type="text/x-handlebars-template">
       <h2>{{date}}</h2>
       <p><span>Log entry: </span>
@@ -25,46 +26,54 @@
     </script>
   </head>
   <body>
-    <h1>MedSwarm</h1>
-    <div id="navbar">
-      <a data-category="form" class="tab">New Entry</a>
-      <a data-category="graph" class="tab">Graph</a>
-      <a data-category="log" class="tab">Log</a>
-    </div>
-    <div class="data" id="form">
-      <h1>New Entry</h1>
-      <section>
-        <form action="#" id="user-form">
-          <label for="date">Lab Date:</label>
-          <input id="date" type="text" name="date" value="">
-          <label for="prescription">Prescription:</label>
-          <input id="prescription" type="text" name="prescription" value="">
-          <label for="dosage">Dosage:</label>
-          <input id="dosage" type="text" name="dosage" value="">
-          <label for="tLevel">Testosterone Levels:</label>
-          <input id="tLevel" type="number" name="tLevel" value="">
-          <label for="eLevel">Estrogen Levels:</label>
-          <input id="eLevel" type="number" name="eLevel" value="">
-          <label for="log">Personal Log:</label>
-          <textarea id="entry-form" name="log" rows="8" cols="80"></textarea>
-          <input id="submit-button" type="submit" value="Submit Form!">
-        </form>
-      </section>
-    </div>
-    <div class="data" id="graph">
-      <h1>Graph</h1>
-      <section>
-        <!-- graph blerb text goes here -->
+    <div id="app-body-content">
+      <div id="navbar-header-slogan">
+        <h1 id="navbar-header">MedSwarm</h1>
+        <p id="navbar-slogan">Be yourself while being apart of something greater.</p>
+      </div>
+      <img id="navbar-img" src="http://i.cdn-cms.com/site/smsbartarcom/1455011136a1u3Y.png" alt="Med-Swarm Logo">
+      <div id="navbar">
+        <a data-category="form" class="tab">New Entry</a>
+        <a data-category="graph" class="tab">Graph</a>
+        <a data-category="log" class="tab">Log</a>
+      </div>
+      <div id="entry-form-graph">
 
-        <canvas id="myChart"></canvas>
-      </section>
-    </div>
-    <div class="data" id="log">
-    <h1>Log</h1>
-      <section id="user-log-info">
+        <div class="data" id="form">
+          <h1>New Entry</h1>
+          <section>
+            <form action="#" id="user-form">
+              <label for="date">Lab Date:</label>
+              <input id="date" type="date" name="date" value="" required>
+              <label for="prescription">Prescription:</label>
+              <input id="prescription" type="text" name="prescription" value="" required>
+              <label for="dosage">Weekly Dosage:</label>
+              <input id="dosage" type="text" name="dosage" value="" required>
+              <label for="tLevel">Testosterone Levels (ng/dL):</label>
+              <input id="tLevel" type="number" name="tLevel" value="" required>
+              <label for="eLevel">Estrogen Levels (ng/dL):</label>
+              <input id="eLevel" type="number" name="eLevel" value="" required>
+              <label for="log">Personal Log:</label>
+              <textarea id="form-textarea" name="log" rows="8" cols="80" required></textarea>
+              <input id="submit-button" type="submit" value="Submit Form!">
+            </form>
+          </section>
+        </div>
 
-          <!-- log appends here at the end of #entry-template-->
-      </section>
+        <div class="data" id="graph">
+          <h1>Graph</h1>
+          <section>
+            <canvas id="myChart"></canvas>
+          </section>
+        </div>
+
+        <div class="data" id="log">
+        <h1>Log</h1>
+          <section id="user-log-info"></section>
+        </div>
+
+      </div>
+      <footer> Contact Us || Created by Med-Swarm Co. &copy;</footer>
     </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
