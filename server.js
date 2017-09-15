@@ -28,8 +28,8 @@ app.post('/submit', function(request, response) {
       `SELECT user_id FROM users`,
       function(err, result) {
         if (err) console.error(err)
-        response.send(result.rows[0].user_id)
-        queryThree(result.rows[0].user_id)
+        // queryThree(result.rows[0].user_id)
+        console.log(result);
       }
     )
   }
