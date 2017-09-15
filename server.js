@@ -38,9 +38,9 @@ app.post('/submit', function(request, response) {
       INSERT INTO logs ("user_id", "date", "prescription", "dosage", "tLevel", "eLevel", "logEntry")
       VALUES($1, $2, $3, $4, $5, $6, $7)`,
       [user_id, request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry],
-      function(err){
+      function(user_id, err){
         if (err) console.error(err);
-        response.send({userId: user_id});
+        response.send(user_id);
       }
     );
   }
