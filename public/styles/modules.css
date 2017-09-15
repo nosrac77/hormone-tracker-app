@@ -7,3 +7,18 @@
   border-radius: 5px;
   margin-bottom: 5%;
 }
+
+#slogan-text {
+  font-family: 'Comfortaa', cursive;
+  font-size: 1em;
+  color: #ef74ea;
+}
+
+#log-entry-date {
+  font-family: 'Cookie', cursive;
+  font-size: 2em;
+}
+
+#log-entry-divider {
+  width: 100%;
+}

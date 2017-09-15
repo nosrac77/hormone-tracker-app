@@ -4,15 +4,26 @@ body {
   margin-right: 2%;
 }
 
-h1 {
-  font-size: 2.3em;
-  margin-bottom: 2%;
+h1, h2, p, li {
   font-family: 'Comfortaa', cursive;
 }
 
-p {
+h1 {
+  font-size: 2.3em;
+  margin-bottom: 2%;
+}
+
+h2 {
   font-size: 1em;
-  font-family: 'Comfortaa', cursive;
+  margin-bottom: 2%;
+}
+
+p, li {
+  font-size: 1.2em;
+}
+
+span {
+  font-weight: bold;
 }
 
 label {
