@@ -28,6 +28,7 @@ app.post('/submit', function(request, response) {
       `SELECT user_id FROM users`,
       function(err, result) {
         if (err) console.error(err)
+        response.send(result.rows[0].user_id)
         queryThree(result.rows[0].user_id)
       }
     )
@@ -38,9 +39,9 @@ app.post('/submit', function(request, response) {
       INSERT INTO logs ("user_id", "date", "prescription", "dosage", "tLevel", "eLevel", "logEntry")
       VALUES($1, $2, $3, $4, $5, $6, $7)`,
       [user_id, request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry],
-      function(user_id, err){
+      function(err){
         if (err) console.error(err);
-        response.send(user_id);
+        response.send('insert complete');
       }
     );
   }
