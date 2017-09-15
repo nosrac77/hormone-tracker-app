@@ -28,7 +28,7 @@ function renderLogs(){
 };
 
 function handleSubmit(e){
-  e.preventDefault();
+  // e.preventDefault();
   var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#entry-form').val());
   if(!localStorage.dataPoints) localStorage.dataPoints = JSON.stringify([]);
   console.log(localStorage.dataPoints);
