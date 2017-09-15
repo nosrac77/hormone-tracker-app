@@ -40,7 +40,7 @@ app.post('/submit', function(request, response) {
       [user_id, request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry],
       function(err){
         if (err) console.error(err);
-        response.send('insert complete');
+        response.send(user_id);
       }
     );
   }
