@@ -30,7 +30,8 @@ app.post('/submit', function(request, response) {
         if (err) console.error(err)
         queryThree(result.rows[0].user_id);
         console.log(result.rows[0].user_id);
-        response.send(new Buffer([result]));
+        var id = result;
+        response.send(id);
       }
     )
   }
