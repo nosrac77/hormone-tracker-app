@@ -46,6 +46,14 @@ app.post('/submit', function(request, response) {
   }
 });
 
+app.get('/user/:id', function(request, response) {
+  client.query(`
+    SELECT user_id FROM users WHERE user_id=$1`,
+    [request.params.id])
+    .then(() => response.send(response))
+    .catch(console.error);
+});
+
 app.listen(PORT, function() {
   console.log('Listening on port ' + PORT);
 });
