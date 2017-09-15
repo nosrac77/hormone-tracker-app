@@ -29,7 +29,7 @@ app.post('/submit', function(request, response) {
       function(err, result) {
         if (err) console.error(err)
         // queryThree(result.rows[0].user_id)
-        console.log(result.rows[0]);
+        console.log(result.rows[0].user_id);
       }
     )
   }
