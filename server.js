@@ -24,7 +24,7 @@ app.post('/submit', function(request, response) {
     )
   })
     .then(function(result) {
-      response.send(result.rows[0].user_id);
+      // response.send(result.rows[0].user_id);
       queryThree(result.rows[0].user_id);
     })
     .catch(console.error);
