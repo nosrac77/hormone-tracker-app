@@ -27,7 +27,7 @@ function renderLogs(){
   DataPoint.tempData.forEach(function(data){$('#user-log-info').append(template(data));});
 };
 
-$('#submit-button').on('click', function(e){
+function handleSubmit(e){
   e.preventDefault();
   var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#entry-form').val());
   if(!localStorage.dataPoints) localStorage.dataPoints = JSON.stringify([]);
@@ -38,4 +38,4 @@ $('#submit-button').on('click', function(e){
   renderLogs();
   renderChart();
   $.post('/submit', obj).then(console.log('post complete')).catch(console.error);
-});
+};

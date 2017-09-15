@@ -7,11 +7,7 @@ DataPoint.handleTabs = function() {
     $('#' + dataCat).show();
     console.log('Showing: ' + dataCat);
   });
-  $('#navbar-header').on('click', function(){
-    $('.data').show();
-  });
 };
-
 
 function renderChart () {
   var ctx = document.getElementById('myChart').getContext('2d');
@@ -48,4 +44,4 @@ function renderChart () {
       }]
     },
   });
-  }
+}
