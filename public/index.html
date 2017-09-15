@@ -13,24 +13,24 @@
     <link rel="stylesheet" href="styles/state.css">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 <div class="hidden">
+  <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
     <script id="entry-template" type="text/x-handlebars-template">
-      <h2>{{date}}</h2>
-      <p><span>Log entry: </span>
-        <br>{{logEntry}}
-      </p>
+      <img id ="log-entry-divider"src="http://hddfhm.com/images/elegant-accent-divider-clipart-10.png"/>
+      <p id="log-entry-date">Date: {{date}}</p>
+      <p class="log-hormone-info"><span>Prescription</span>: {{prescription}}</p>
       <ul>
-        <li><span>Prescription: </span>{{prescription}}</li>
-        <li><span>Dosage: </span>{{dosage}}</li>
-        <li><span>Testosterone level: </span>{{tLevel}}</li>
-        <li><span>Estrogen level: </span>{{eLevel}}</li>
+        <li class="log-hormone-info"><span>Weekly Dosage</span>: {{dosage}}</li>
+        <li class="log-hormone-info"><span>Testosterone level</span>: {{tLevel}} (ng/dL)</li>
+        <li class="log-hormone-info" id="log-entry-estrogen"><span>Estrogen level</span>: {{eLevel}} (ng/dL)</li>
       </ul>
+      <p id="log-entry-journal"><span>Log entry</span>: {{logEntry}}</p>
     </script>
   </head>
   <body>
     <div id="app-body-content">
       <div id="navbar-header-slogan">
         <h1 id="navbar-header">MedSwarm</h1>
-        <p id="navbar-slogan">Be yourself while being apart of something greater.</p>
+        <p id="navbar-slogan">Be yourself while being apart of <span id="slogan-text">something greater</span>.</p>
       </div>
       <img id="navbar-img" src="http://i.cdn-cms.com/site/smsbartarcom/1455011136a1u3Y.png" alt="Med-Swarm Logo">
       <div id="navbar">

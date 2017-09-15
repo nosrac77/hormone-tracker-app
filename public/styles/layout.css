@@ -13,7 +13,7 @@
 #navbar-header-slogan {
   display: inline-block;
   width: 60%;
-  margin-bottom: 6%;
+  margin-bottom: 8%;
   padding-top: 4%;
 }
 
@@ -52,6 +52,25 @@
   width: 60%;
   margin-left: 20%;
   margin-right: 20%;
+}
+
+#log-entry-date {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 7%;
+}
+
+#log-entry-estrogen {
+  margin-bottom: 7%;
+}
+
+.log-hormone-info {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+#log-entry-journal {
+  margin-bottom: 15%;
 }
 
 @media screen and (max-width: 450px){
