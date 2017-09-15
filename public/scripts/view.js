@@ -13,7 +13,6 @@ DataPoint.handleTabs = function() {
   });
 };
 
-
 function renderChart () {
   var ctx = document.getElementById('myChart').getContext('2d');
 
@@ -49,4 +48,4 @@ function renderChart () {
       }]
     },
   });
-  }
+}

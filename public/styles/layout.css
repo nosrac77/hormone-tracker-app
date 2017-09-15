@@ -2,6 +2,33 @@
   text-align: center;
 }
 
+#navbar-header {
+  margin-bottom: 0;
+}
+
+#navbar-slogan {
+  margin-left: 1.2%;
+}
+
+#navbar-header-slogan {
+  display: inline-block;
+  width: 60%;
+  margin-bottom: 6%;
+  padding-top: 4%;
+}
+
+#navbar-img {
+  float: right;
+  padding-top: 2%;
+  width: 35%;
+  display: none;
+}
+
+#app-body-content {
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
 .tab {
   margin-left: 5%;
   margin-right: 5%;
@@ -10,15 +37,32 @@
 .data {
   width: 100%;
   display: block;
+  height: 25%;
+}
+
+#user-log-info {
+  overflow-y: scroll;
+}
+
+#form-textarea {
+  width: 98.7%;
+}
+
+#submit-button {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 @media screen and (max-width: 450px){
   .data {
     display: none;
   }
-  body {
-    margin-left: 2%;
-    margin-right: 2%;
+  #navbar-header {
+    font-size: 3.1em;
+  }
+  #navbar-header-slogan {
+    width: 100%;
   }
 }
 
@@ -26,7 +70,17 @@
   body {
     margin-left: 5%;
     margin-right: 5%;
+sh  }
+  #navbar-header {
+    font-size: 4em;
   }
+  #navbar-img {
+    display: block;
+  }
+  /*#date, #prescription, #dosage {
+    float: left;
+    width: 10%;
+  }*/
 }
 
 @media screen and (min-width: 900px) {
@@ -34,6 +88,7 @@
     height: 100%;
     width: 33%;
     float: left;
+    display: block;
   }
   #form {
     margin-right: 0.5%;
@@ -41,11 +96,23 @@
   #log {
     margin-left: 0.5%;
   }
-  #log-form {
+  #form-textarea {
     width: 97%;
   }
   body {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+  #navbar {
+    display: none;
+  }
+  #navbar-header {
+    font-size: 4.5em;
+  }
+  #navbar-header:hover{
+    cursor: pointer;
+  }
+  #navbar-img {
+    display: block;
   }
 }
