@@ -50,12 +50,14 @@ app.post('/submit', function(request, response) {
   }
 });
 
-app.post('/user', function(request, response) {
-  console.log('inside /user on server');
-  client.query(`
-    INSERT INTO logs ("user_id", "date", "prescription", "dosage", "tLevel", "eLevel", "logEntry")
-    VALUES($1, $2, $3, $4, $5, $6, $7)`,
-    [request.body.userId, request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry],
+app.post('/user/:id', function(request, response) {
+  console.log('inside /user/:id on server');
+  client.query(`INSERT INTO
+            logs("user_id", "date", "prescription", "dosage", "tLevel", "eLevel", "logEntry")
+            SELECT "user_id", $1, $2, $3, $4, $5, $6
+            FROM users
+            WHERE user_id=$7;`,
+    [request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry, request.params.id],
     function(err){
       if (err) console.error(err);
       response.send('insert complete');

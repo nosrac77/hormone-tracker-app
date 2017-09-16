@@ -34,6 +34,7 @@ function renderLogs(){
 function handleDB(obj) {
   console.log('inside of handleDB');
   if(!localStorage.user) {
+    console.log('no user in localStorage');
     $.post('/submit', obj)
     .then(function(result){
       console.log('post complete');
@@ -42,14 +43,19 @@ function handleDB(obj) {
     .catch(console.error);
   } else {
     console.log('inside of else statement in handleDB');
-    obj.userId = JSON.parse(localStorage.user);
-    $.post('/user', obj)
-    .then(function(){
-      console.log('existing user has made another entry');
+    var userId = JSON.parse(localStorage.user);
+    console.log('userId looks like ' + userId);
+    $.ajax({
+    url: `/user/${userId}`,
+    method: 'POST',
+    data: obj
     })
-    .catch(console.error);
+    .then(function(data) {
+      console.log(data);
+    });
   }
 }
+
 
 function handleSubmit(e){
   e.preventDefault();
