@@ -37,8 +37,8 @@ function handleDB(obj) {
     console.log('no user in localStorage');
     $.post('/new', obj)
     .then(function(result){
-      console.log('post complete');
       localStorage.user = result;
+      console.log('/new post complete, localStorage.user looks like ' + localStorage.user);
     })
     .catch(console.error);
   } else {
@@ -46,16 +46,15 @@ function handleDB(obj) {
     var userId = JSON.parse(localStorage.user);
     console.log('userId looks like ' + userId);
     $.ajax({
-    url: `/user/${userId}`,
-    method: 'POST',
-    data: obj
+      url: '/user/${userId}',
+      method: 'POST',
+      data: obj
     })
     .then(function(data) {
       console.log(data);
     });
   }
 }
-
 
 function handleSubmit(e){
   e.preventDefault();
