@@ -34,12 +34,12 @@ function renderLogs(){
 function handleSubmit(e){
   e.preventDefault();
   $('#user-log-info').empty();
-  var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#form-textarea').val());
   if(!localStorage.user) {
     //insert record into exisitng user
     console.log('no user in localStorage');
   } else {
     //enter new user and info into database and then get the user_id to save to localStorage.user
+    var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#form-textarea').val());
     $.post('/submit', obj).then(function(result){
       console.log('post complete');
       localStorage.user = result;
