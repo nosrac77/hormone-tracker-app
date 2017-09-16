@@ -31,28 +31,54 @@ function renderLogs(){
   });
 };
 
+function handleDB(obj) {
+  console.log('inside of handleDB');
+  if(!localStorage.user) {
+    console.log('no user in localStorage');
+    $.post('/new', obj)
+    .then(function(result){
+      localStorage.user = result;
+      console.log('/new post complete, localStorage.user looks like ' + localStorage.user);
+    })
+    .catch(console.error);
+  } else {
+    console.log('inside of else statement in handleDB');
+    var userId = localStorage.user;
+    console.log('userId looks like ' + userId);
+    $.ajax({
+      url: `/user/${userId}`,
+      method: 'POST',
+      data: obj
+    })
+    .then(function(result) {
+      console.log(result);
+    })
+    .catch(console.error);
+  }
+}
+
 function handleSubmit(e){
   e.preventDefault();
   $('#user-log-info').empty();
-  var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#form-textarea').val());
-  console.log(localStorage.dataPoints);
+  console.log(localStorage.user);
+  var formObj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#form-textarea').val());
+  handleDB(formObj);
+  loadLocalStorage();
   DataPoint.tempData = JSON.parse(localStorage.dataPoints);
-  if(obj.date &&
-     obj.prescription &&
-     obj.dosage &&
-     obj.eLevel &&
-     obj.tLevel
+  if(formObj.date &&
+     formObj.prescription &&
+     formObj.dosage &&
+     formObj.eLevel &&
+     formObj.tLevel
    ){
-    DataPoint.tempData.push(obj);
+    DataPoint.tempData.push(formObj);
   }else{
     alert('You must complete all fields.');
     return;
   }
   localStorage.dataPoints = JSON.stringify(DataPoint.tempData);
-  loadLocalStorage();
   renderLogs();
   renderChart();
-  $.post('/submit', obj).then(console.log('post complete')).catch(console.error);
   $('.clearfix').val('');
   $('textarea').val('');
 };
