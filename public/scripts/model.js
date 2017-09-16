@@ -63,6 +63,7 @@ function handleSubmit(e){
   console.log(localStorage.user);
   var formObj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#form-textarea').val());
   handleDB(formObj);
+  loadLocalStorage();
   DataPoint.tempData = JSON.parse(localStorage.dataPoints);
   if(formObj.date &&
      formObj.prescription &&
@@ -76,7 +77,6 @@ function handleSubmit(e){
     return;
   }
   localStorage.dataPoints = JSON.stringify(DataPoint.tempData);
-  loadLocalStorage();
   renderLogs();
   renderChart();
   $('.clearfix').val('');
