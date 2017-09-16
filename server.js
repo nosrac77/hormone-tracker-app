@@ -48,13 +48,17 @@ app.post('/submit', function(request, response) {
   }
 });
 
-app.get('/user/:id', function(request, response) {
+app.post('/user', function(request, response) {
   client.query(`
-    SELECT user_id FROM users WHERE user_id=$1`,
-    [request.params.id])
-    .then(() => response.send(response))
-    .catch(console.error);
-});
+    INSERT INTO logs ("date", "prescription", "dosage", "tLevel", "eLevel", "logEntry")
+    VALUES($1, $2, $3, $4, $5, $6) WHERE user_id=$7`,
+    [request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry, request.body.userId],
+    function(err){
+      if (err) console.error(err);
+      response.send('insert complete');
+    }
+  );
+}
 
 app.listen(PORT, function() {
   console.log('Listening on port ' + PORT);

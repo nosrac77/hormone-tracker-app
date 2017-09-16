@@ -34,9 +34,13 @@ function renderLogs(){
 function handleSubmit(e){
   e.preventDefault();
   $('#user-log-info').empty();
-  if(!localStorage.user) {
+  if(localStorage.user) {
     //insert record into exisitng user
-    console.log('no user in localStorage');
+    var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#form-textarea').val());
+    obj.userId = JSON.parse(localStorage.user);
+    $.post('/user', obj).then(function(){
+      console.log('existing user has made another entry');
+    });
   } else {
     //enter new user and info into database and then get the user_id to save to localStorage.user
     var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#form-textarea').val());
