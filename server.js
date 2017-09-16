@@ -58,7 +58,7 @@ app.post('/user', function(request, response) {
       response.send('insert complete');
     }
   );
-}
+});
 
 app.listen(PORT, function() {
   console.log('Listening on port ' + PORT);
