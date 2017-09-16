@@ -33,19 +33,19 @@ function renderLogs(){
 
 function handleSubmit(e){
   e.preventDefault();
-  //if(localStorage.user) {
-    // insert record into exisitng user
-  //} else {
-    // enter new user and info into database and then get the user_id to save to localStorage.user
-  //}
   $('#user-log-info').empty();
   var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#form-textarea').val());
+  if(!localStorage.user) {
+    //insert record into exisitng user
+    console.log('no user in localStorage');
+  } else {
+    //enter new user and info into database and then get the user_id to save to localStorage.user
+    $.post('/submit', obj).then(function(result){
+      console.log('post complete');
+      localStorage.user = result;
+    }).catch(console.error);
+  }
   console.log(localStorage.dataPoints);
-  $.post('/submit', obj).then(function(result){
-    console.log('post complete');
-    localStorage.user = result;
-  }).catch(console.error);
-  // $.get('/user').then(function(result){localStorage.user = result;}).catch(console.error);
   console.log(localStorage.user);
   DataPoint.tempData = JSON.parse(localStorage.dataPoints);
   if(obj.date &&
