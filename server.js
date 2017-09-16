@@ -46,7 +46,7 @@ app.post('/new', function(request, response) {
       function(err){
         if (err) console.error(err);
         console.log('inside query three');
-        response.send('insert complete');
+        console.log('insert from query3 complete');
       }
     );
   }
@@ -62,7 +62,7 @@ app.post('/user/:id', function(request, response) {
     [request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry, request.params.id],
     function(err){
       if (err) console.error(err);
-      response.send('insert complete');
+      console.log('insert from user/:id complete');
     }
   );
 });
