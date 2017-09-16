@@ -43,16 +43,17 @@ function handleDB(obj) {
     .catch(console.error);
   } else {
     console.log('inside of else statement in handleDB');
-    var userId = JSON.parse(localStorage.user);
+    var userId = localStorage.user;
     console.log('userId looks like ' + userId);
     $.ajax({
-      url: '/user/${userId}',
+      url: `/user/${userId}`,
       method: 'POST',
       data: obj
     })
-    .then(function(data) {
-      console.log(data);
-    });
+    .then(function(result) {
+      console.log(result);
+    })
+    .catch(console.error);
   }
 }
 
