@@ -25,7 +25,8 @@ app.post('/submit', function(request, response) {
 
   function queryTwo() {
     client.query(
-      `SELECT user_id FROM users`,
+      `SELECT user_id FROM users
+       ORDER BY user_id DESC`,
       function(err, result) {
         if (err) console.error(err)
         queryThree(result.rows[0].user_id);
