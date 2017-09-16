@@ -51,7 +51,7 @@ app.post('/submit', function(request, response) {
 });
 
 app.post('/user', function(request, response) {
-  console.log('inside app.post on server');
+  console.log('inside /user on server');
   client.query(`
     INSERT INTO logs ("user_id", "date", "prescription", "dosage", "tLevel", "eLevel", "logEntry")
     VALUES($1, $2, $3, $4, $5, $6, $7)`,

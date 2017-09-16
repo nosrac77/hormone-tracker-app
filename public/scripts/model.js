@@ -33,19 +33,19 @@ function renderLogs(){
 
 function handleDB(obj) {
   console.log('inside of handleDB');
-  if(localStorage.user) {
-    console.log('inside of if statement in handleDB');
-    obj.userId = JSON.parse(localStorage.user);
-    $.post('/user', obj)
-    .then(function(){
-      console.log('existing user has made another entry');
-    })
-    .catch(console.error);
-  } else {
+  if(!localStorage.user) {
     $.post('/submit', obj)
     .then(function(result){
       console.log('post complete');
       localStorage.user = result;
+    })
+    .catch(console.error);
+  } else {
+    console.log('inside of else statement in handleDB');
+    obj.userId = JSON.parse(localStorage.user);
+    $.post('/user', obj)
+    .then(function(){
+      console.log('existing user has made another entry');
     })
     .catch(console.error);
   }
@@ -54,7 +54,6 @@ function handleDB(obj) {
 function handleSubmit(e){
   e.preventDefault();
   $('#user-log-info').empty();
-  console.log(localStorage.dataPoints);
   console.log(localStorage.user);
   var formObj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#form-textarea').val());
   handleDB(formObj);
