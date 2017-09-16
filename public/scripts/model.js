@@ -31,34 +31,39 @@ function renderLogs(){
   });
 };
 
+function handleDB(obj) {
+  if(localStorage.user) {
+    obj.userId = JSON.parse(localStorage.user);
+    $.post('/user', obj)
+    .then(function(){
+      console.log('existing user has made another entry');
+    })
+    .catch(console.error);
+  } else {
+    $.post('/submit', obj)
+    .then(function(result){
+      console.log('post complete');
+      localStorage.user = result;
+    })
+    .catch(console.error);
+  }
+}
+
 function handleSubmit(e){
   e.preventDefault();
   $('#user-log-info').empty();
-  if(localStorage.user) {
-    //insert record into exisitng user
-    var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#form-textarea').val());
-    obj.userId = JSON.parse(localStorage.user);
-    $.post('/user', obj).then(function(){
-      console.log('existing user has made another entry');
-    });
-  } else {
-    //enter new user and info into database and then get the user_id to save to localStorage.user
-    var obj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#form-textarea').val());
-    $.post('/submit', obj).then(function(result){
-      console.log('post complete');
-      localStorage.user = result;
-    }).catch(console.error);
-  }
   console.log(localStorage.dataPoints);
   console.log(localStorage.user);
+  var formObj = new DataPoint($('#date').val(), $('#prescription').val(), parseInt($('#dosage').val()), parseInt($('#tLevel').val()), parseInt($('#eLevel').val()), $('#form-textarea').val());
+  handleDB(formObj);
   DataPoint.tempData = JSON.parse(localStorage.dataPoints);
-  if(obj.date &&
-     obj.prescription &&
-     obj.dosage &&
-     obj.eLevel &&
-     obj.tLevel
+  if(formObj.date &&
+     formObj.prescription &&
+     formObj.dosage &&
+     formObj.eLevel &&
+     formObj.tLevel
    ){
-    DataPoint.tempData.push(obj);
+    DataPoint.tempData.push(formObj);
   }else{
     alert('You must complete all fields.');
     return;
