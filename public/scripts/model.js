@@ -32,7 +32,9 @@ function renderLogs(){
 };
 
 function handleDB(obj) {
+  console.log('inside of handleDB');
   if(localStorage.user) {
+    console.log('inside of if statement in handleDB');
     obj.userId = JSON.parse(localStorage.user);
     $.post('/user', obj)
     .then(function(){
