@@ -62,7 +62,7 @@ app.post('/user/:id', function(request, response) {
     [request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry, request.params.id],
     function(err){
       if (err) console.error(err);
-      console.log('insert from user/:id complete');
+      response.send('insert from user/:id complete');
     }
   );
 });

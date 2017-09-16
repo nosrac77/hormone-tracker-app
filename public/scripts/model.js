@@ -50,8 +50,8 @@ function handleDB(obj) {
       method: 'POST',
       data: obj
     })
-    .then(function() {
-      console.log('ajax call for user/:id is done');
+    .then(function(result) {
+      console.log(result);
     })
     .catch(console.error);
   }
