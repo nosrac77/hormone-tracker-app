@@ -14,12 +14,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
-app.post('/submit', function(request, response) {
+app.post('/new', function(request, response) {
   client.query(
     'INSERT INTO users("userInfoSharing") VALUES(true)',
     function(err) {
       if (err) console.error(err)
       queryTwo()
+      console.log('inside query one');
     }
   )
 
@@ -44,6 +45,7 @@ app.post('/submit', function(request, response) {
       [user_id, request.body.date, request.body.prescription, request.body.dosage, request.body.tLevel, request.body.eLevel, request.body.logEntry],
       function(err){
         if (err) console.error(err);
+        console.log('inside query three');
         response.send('insert complete');
       }
     );

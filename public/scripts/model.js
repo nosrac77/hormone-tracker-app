@@ -35,7 +35,7 @@ function handleDB(obj) {
   console.log('inside of handleDB');
   if(!localStorage.user) {
     console.log('no user in localStorage');
-    $.post('/submit', obj)
+    $.post('/new', obj)
     .then(function(result){
       console.log('post complete');
       localStorage.user = result;
