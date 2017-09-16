@@ -43,7 +43,7 @@ function handleSubmit(e){
   console.log(localStorage.dataPoints);
   $.post('/submit', obj).then(function(result){
     console.log('post complete');
-    localStorage.user = JSON.stringify(result);
+    localStorage.user = result;
   }).catch(console.error);
   // $.get('/user').then(function(result){localStorage.user = result;}).catch(console.error);
   console.log(localStorage.user);
